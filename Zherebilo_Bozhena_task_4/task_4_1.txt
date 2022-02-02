@@ -1,0 +1,40 @@
+# Проверить, установлен ли пакет `pillow` в глобальном окружении
+
+bozeniu@MacBook-Air-Bozena ~ % pip3 freeze
+certifi==2021.10.8
+charset-normalizer==2.0.11
+Django==2.2
+idna==3.3
+pytz==2021.3
+sqlparse==0.4.2
+urllib3==1.26.8
+
+# Установить самую свежую версию `pillow`, если ранее она не была установлена
+
+bozeniu@MacBook-Air-Bozena ~ % pip3 install pillow
+Collecting pillow
+  Downloading Pillow-9.0.0-cp310-cp310-macosx_10_10_universal2.whl (3.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 11.4 MB/s eta 0:00:00
+Installing collected packages: pillow
+Successfully installed pillow-9.0.0
+
+# Создать и активировать виртуальное окружение. Убедиться, что в нем нет пакета `pillow`
+
+bozeniu@MacBook-Air-Bozena Desktop % cd Space
+bozeniu@MacBook-Air-Bozena Space % python3 -m venv my_space
+bozeniu@MacBook-Air-Bozena Space % source my_space/bin/activate
+(my_space) bozeniu@MacBook-Air-Bozena Space % pip3 show pillow
+WARNING: Package(s) not found: pillow
+
+# Установить в виртуальное окружение `pillow` версии `7.1.1` (или другой, отличной от самой свежей)
+
+(my_space) bozeniu@MacBook-Air-Bozena Space % pip3 install pillow==8.3.2
+Collecting pillow==8.3.2
+  Downloading Pillow-8.3.2-cp310-cp310-macosx_10_10_universal2.whl (3.0 MB)
+     |████████████████████████████████| 3.0 MB 1.7 MB/s
+Installing collected packages: pillow
+Successfully installed pillow-8.3.2
+
+# Деактивировать виртуальное окружение.
+(my_space) bozeniu@MacBook-Air-Bozena Space % deactivate
+bozeniu@MacBook-Air-Bozena Space %
